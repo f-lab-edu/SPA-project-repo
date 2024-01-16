@@ -22,3 +22,6 @@
 .menu_item {
   margin-right: 20px;
 }
+.list-none {
+  list-style: none;
+}
