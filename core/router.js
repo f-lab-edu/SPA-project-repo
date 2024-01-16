@@ -1,4 +1,4 @@
-
+import { renderPostDetail } from '../components/PostDetail.js';
 import { renderDesignPage } from '../pages/DesignPage.js';
 import { renderTechPage } from '../pages/TechPage.js';
 import { renderHomePage } from '../pages/MainPage.js';
@@ -14,7 +14,13 @@ export function handleRoute() {
   while (appDiv.firstChild) {
     appDiv.removeChild(appDiv.firstChild);
   }
- if (path === '/design') {
+  if (path.startsWith('/post/')) {
+    const postId = parseInt(path.split('/').pop());
+    console.log('Post ID:', postId);
+    if (postId) {
+      renderPostDetail(postId);
+    }
+  } else if (path === '/design') {
     renderDesignPage();
   } else if (path === '/tech') {
     renderTechPage();
